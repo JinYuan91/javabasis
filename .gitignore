@@ -7,6 +7,8 @@ HELP.md
 .DS_Store
 
 .mvn
+mvnw
+mvnw.cmd
 
 
 ### STS ###
