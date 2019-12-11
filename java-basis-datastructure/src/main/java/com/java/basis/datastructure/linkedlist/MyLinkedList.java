@@ -142,7 +142,7 @@ public class MyLinkedList<E> {
 
     /**
      * @Description: 获取链表长度
-     * @Param:1
+     * @Param:
      * @return:
      * @Author: 无始
      * @Date: 2019/12/11+11:15 AM
