@@ -1,2 +1,0 @@
-# javabasis
-java basis info
