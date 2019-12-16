@@ -2,7 +2,7 @@ package com.java.basis.datastructure.array;
 
 import java.util.*;
 
-public class Exercise {
+public class ArrayExercise {
     public static int[] twoSum(int[] nums, int target) {
 
         HashMap<Integer, ArrayList<Integer>> hashMap = new HashMap<Integer, ArrayList<Integer>>();
