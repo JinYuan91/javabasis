@@ -9,7 +9,7 @@ public class Quick {
         quickSort(nums, l, r);
         System.out.println('c');
     }
-    
+
 
     private static void quickSort(int[] nums, final int l, final int r) {
         int p = l;//定义数组偏中间值为基准数位置
@@ -18,6 +18,8 @@ public class Quick {
 
         int left = l;
         int right = r;
+
+        /*--挖坑填数--*/
         while (left < right) {
             if (nums[right] >= pValue) {
                 right--;
@@ -44,11 +46,11 @@ public class Quick {
         /*--第一次排序完成--*/
         //分治  左边部分 小于基准数的排序
         if (left -l>= 2) {
-            recursive(nums, l, left - 1);
+            quickSort(nums, l, left - 1);
         }
         //分治
         if (r - right >= 2) {
-            recursive(nums, right + 1, r);
+            quickSort(nums, right + 1, r);
         }
     }
 }
