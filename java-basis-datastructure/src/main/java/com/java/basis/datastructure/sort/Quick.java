@@ -6,15 +6,12 @@ public class Quick {
 //        int[] nums = {72, 6};
         final int l = 0;
         final int r = nums.length - 1;
-        recursive(nums, l, r);
+        quickSort(nums, l, r);
         System.out.println('c');
     }
+    
 
-    public static int[] quickSort(int[] nums) {
-        return null;
-    }
-
-    private static void recursive(int[] nums, final int l, final int r) {
+    private static void quickSort(int[] nums, final int l, final int r) {
         int p = l;//定义数组偏中间值为基准数位置
 
         int pValue = nums[p];//获取基准数
