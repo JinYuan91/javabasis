@@ -8,10 +8,17 @@ public class Quick {
         final int r = nums.length - 1;
         quickSort(nums, l, r);
         System.out.println('c');
+
+        /**
+         * 递归
+         * 「找基准点 排序 挖坑填数
+         * 然后分左右两快区域 」
+         *
+         */
     }
 
     /**
-     * @Description:快排
+     * @Description:快速排序 原地排序
      * @Param:
      * @return:
      * @Author: 无始

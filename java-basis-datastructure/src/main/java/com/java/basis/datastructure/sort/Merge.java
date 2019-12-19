@@ -2,15 +2,33 @@ package com.java.basis.datastructure.sort;
 
 public class Merge {
     public static void main(String[] args) {
-        int[] nums = {72, 6, 57, 88, 60, 42, 83, 73};
+        int[] nums = {72, 6, 89, 88, 60, 42, 83, 73};
 //        int[] nums = {72, 6};
         mergeSort(nums, 0, nums.length - 1);
         System.out.println('c');
 
+        /**
+        /            0-7
+        /
+        /      0-3         4-7
+        /
+        / 0-1   2-3      4-5    6-7
+        /
+        /后序遍历
+        /
+        /0-1
+        /2-3
+        /0-3
+        /4-5
+        /6-7
+        /4-7
+        /0-7
+        */
+
     }
 
     /**
-    * @Description:  归并
+    * @Description:  归并排序
     * @Param:
     * @return:
     * @Author: 无始
@@ -26,6 +44,13 @@ public class Merge {
 
     }
 
+    /**
+    * @Description:  合并
+    * @Param:
+    * @return:
+    * @Author: 无始
+    * @Date: 2019/12/19+6:20 PM
+    */
     private static void merge(int[] nums, int start, int p, int end) {
         int[] temp = new int[end - start + 1];//辅助数组
 
