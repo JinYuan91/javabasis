@@ -10,6 +10,13 @@ public class Insert {
 
     }
 
+    /**
+    * @Description:插入
+    * @Param:
+    * @return:
+    * @Author: 无始
+    * @Date: 2019/12/19+10:15 AM
+    */
     public static int[] insertSort(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
             for (int j = i - 1; j >=0; j--) {
