@@ -59,20 +59,20 @@ public class ArrayExercise {
                 continue;
             }
             while (l < r) {
-                int value=nums[i] + nums[l] + nums[r];
+                int value = nums[i] + nums[l] + nums[r];
                 if (value == 0) {
                     List<Integer> item = new ArrayList<>(3);
                     item.add(nums[i]);
                     item.add(nums[l]);
                     item.add(nums[r]);
                     result.add(item);
-                    while (l < r &&nums[i] == nums[l + 1]  ) {
+                    while (l < r && nums[i] == nums[l + 1]) {
 //                        result.remove(item);
                         l++;
                     }
 
 
-                    while (r > l&&nums[r] == nums[r - 1] ) {
+                    while (r > l && nums[r] == nums[r - 1]) {
 //                        result.remove(item);
                         r--;
                     }
@@ -89,6 +89,25 @@ public class ArrayExercise {
 
         return result;
 
+    }
+
+    /**
+     * @Description:双指针 字符串反转 leetcode
+     * @Param:
+     * @return:
+     * @Author: 无始
+     * @Date: 2019/12/25+6:27 PM
+     */
+    public void reverseString(char[] s) {
+        int endIndex = s.length - 1;
+        for (int i = 0; i < s.length; i++) {
+            if (i < (endIndex - i)) {
+                char value = s[i];
+                s[i] = s[endIndex - i];
+                s[endIndex - i] = value;
+            }
+
+        }
     }
 
     public static void main(String[] args) {

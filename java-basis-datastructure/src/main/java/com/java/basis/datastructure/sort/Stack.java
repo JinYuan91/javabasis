@@ -32,6 +32,7 @@ public class Stack {
 
     }
 
+
     private int[] newNums = null;
 
     /**
