@@ -14,7 +14,7 @@ public class Stack {
 //        }
 
 
-        Stack stackSort=new Stack();
+        Stack stackSort = new Stack();
         stackSort.initStack(nums);
 
 
@@ -23,6 +23,9 @@ public class Stack {
         System.out.println(stackSort.pop());
         System.out.println(stackSort.pop());
         System.out.println(stackSort.pop());
+        stackSort.addStack(20);
+        System.out.println(stackSort.pop());
+        stackSort.addStack(15);
         System.out.println(stackSort.pop());
         System.out.println(stackSort.pop());
         System.out.println(stackSort.pop());
@@ -46,12 +49,12 @@ public class Stack {
     }
 
     /**
-    * @Description:  获取堆顶元素
-    * @Param:
-    * @return:
-    * @Author: 无始
-    * @Date: 2019/12/24+10:23 PM
-    */
+     * @Description: 获取堆顶元素
+     * @Param:
+     * @return:
+     * @Author: 无始
+     * @Date: 2019/12/24+10:23 PM
+     */
     public int pop() {
         int resultValue = newNums[0];
 
@@ -59,12 +62,11 @@ public class Stack {
         newNums[0] = endValue;
 
 
-        int[] copyNums=new int[newNums.length-1];
-        for(int i=0;i<copyNums.length;i++)
-        {
-            copyNums[i]=newNums[i];
+        int[] copyNums = new int[newNums.length - 1];
+        for (int i = 0; i < copyNums.length; i++) {
+            copyNums[i] = newNums[i];
         }
-        newNums=copyNums;
+        newNums = copyNums;
 
 
         int contion = 0;
@@ -78,21 +80,18 @@ public class Stack {
                 contion++;
                 continue;
             }
-            if(newNums[childLeftIndex] > newNums[childRightIndex] )
-            {
-                replace(newNums,childLeftIndex,childRightIndex);
+            if (newNums[childLeftIndex] > newNums[childRightIndex]) {
+                replace(newNums, childLeftIndex, childRightIndex);
             }
 
-            if(newNums[childRightIndex] > newNums[currnetIndex])
-            {
-                replace(newNums,childRightIndex,currnetIndex);
-                currnetIndex=childRightIndex;
+            if (newNums[childRightIndex] > newNums[currnetIndex]) {
+                replace(newNums, childRightIndex, currnetIndex);
+                currnetIndex = childRightIndex;
                 continue;
             }
-            if(newNums[childLeftIndex] > newNums[currnetIndex])
-            {
-                replace(newNums,childLeftIndex,currnetIndex);
-                currnetIndex=childLeftIndex;
+            if (newNums[childLeftIndex] > newNums[currnetIndex]) {
+                replace(newNums, childLeftIndex, currnetIndex);
+                currnetIndex = childLeftIndex;
                 continue;
             }
 
@@ -101,6 +100,24 @@ public class Stack {
 
         return resultValue;
 
+    }
+
+    /**
+     * @Description: 添加元素至
+     * @Param:
+     * @return:
+     * @Author: 无始
+     * @Date: 2019/12/25+10:32 AM
+     */
+    public void addStack(int num) {
+        int[] nums = new int[newNums.length + 1];
+        for (int i = 0; i < newNums.length; i++) {
+            nums[i] = newNums[i];
+        }
+        int currentIndex = nums.length - 1;
+        nums[currentIndex] = num;
+        replaceRecursive(nums, currentIndex);
+        newNums = nums;
     }
 
 
