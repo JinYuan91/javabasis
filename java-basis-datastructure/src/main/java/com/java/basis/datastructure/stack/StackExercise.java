@@ -40,19 +40,17 @@ public class StackExercise {
     }
 
     /**
-    * @Description: 滑动窗口最大值练习
-    * @Param:
-    * @return:
-    * @Author: 无始
-    * @Date: 2019/12/25+4:13 PM
-    */
+     * @Description: 滑动窗口最大值练习
+     * @Param:
+     * @return:
+     * @Author: 无始
+     * @Date: 2019/12/25+4:13 PM
+     */
     public int[] maxSlidingWindow(int[] nums, int k) {
-        if(nums.length<=0)
-        {
+        if (nums.length <= 0) {
             return new int[]{};
         }
-        if(k<=0)
-        {
+        if (k <= 0) {
             return new int[]{};
         }
         int[] result = new int[nums.length - k + 1];
@@ -104,7 +102,7 @@ public class StackExercise {
     }
 
 
-    private  int getIndexParentIndex(int index) {
+    private int getIndexParentIndex(int index) {
         if (index > 0) {
             return (index - 1) / 2;
         } else {
@@ -119,13 +117,57 @@ public class StackExercise {
     }
 
 
-    private  int getIndexChildRightIndex(int index) {
+    private int getIndexChildRightIndex(int index) {
         return getIndexChildLeftIndex(index) + 1;
     }
 
+
+    public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        double z1=0;
+        double z2=0;
+        if (nums1 != null && nums1.length > 0) {
+            if (nums1.length % 2 == 0) {
+                z1 = (double) (nums1[nums1.length / 2] + nums1[nums1.length / 2 - 1]) / 2;
+            } else {
+                if (nums1.length == 1) {
+                    z1 = (double) nums1[0];
+                } else {
+                    z1 = nums1[nums1.length / 2 + 1];
+                }
+            }
+        }
+
+        if (nums2 != null && nums2.length > 0) {
+            if (nums2.length % 2 == 0) {
+                z2 = (double) (nums2[nums2.length / 2] + nums2[nums2.length / 2 - 1]) / 2;
+            } else {
+                if (nums2.length == 1) {
+                    z2 = (double) nums2[0];
+                } else {
+                    z2 = nums2[nums2.length / 2 + 1];
+                }
+            }
+        }
+
+        if(nums1==null||nums1.length==0)
+        {
+            return z2;
+        }
+        if(nums2==null||nums2.length==0)
+        {
+            return z1;
+        }
+        return (double) (z1 + z2) / 2;
+    }
+
     public static void main(String[] args) {
+
+        int[] nums1 = {};
+        int[] nums2 = {2};
+        double value = findMedianSortedArrays(nums1, nums2);
+
         int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
-        StackExercise s=new StackExercise();
+        StackExercise s = new StackExercise();
         int[] result = s.maxSlidingWindow(nums, 3);
         System.out.println('c');
     }
