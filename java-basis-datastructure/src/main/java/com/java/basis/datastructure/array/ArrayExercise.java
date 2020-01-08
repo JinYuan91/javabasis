@@ -110,8 +110,98 @@ public class ArrayExercise {
         }
     }
 
+    public static int findMaxConsecutiveOnes(int[] nums) {
+
+        int k = 0;//1 计数
+        int maxValue = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                k++;
+            } else {
+                if (k > 0) {
+                    if (k > maxValue) {
+                        maxValue = k;
+                    }
+                    k = 0;
+                }
+            }
+        }
+        return k > maxValue ? k : maxValue;
+    }
+
+    /**
+    * @Description: 3. 滑动窗口 暴力解法
+    * @Param:
+    * @return:
+    * @Author: 无始
+    * @Date: 2020/1/3+2:46 PM
+    */
+    public static int lengthOfLongestSubstring(String s) {
+        if (s == null || s.length() <= 0) {
+            return 0;
+        }
+        char[] chars = s.toCharArray();
+        HashMap<Character, Integer> windowsArray = null;
+        int maxWindows = 0;
+        for (int i = 0; i < chars.length; i++) {
+            if (maxWindows > chars.length - i) {
+                continue;
+            }
+            windowsArray = new HashMap<>();
+
+            windowsArray.put(chars[i], i);
+            int windowLen = 1;
+            for (int j = i + 1; j < chars.length; j++) {
+                if (windowsArray.get(chars[j]) != null) {
+                    windowsArray.remove(chars[i]);
+                    break;
+                }
+                windowsArray.put(chars[j], j);
+                windowLen++;
+                if (windowLen > maxWindows) {
+                    maxWindows = windowLen;
+                }
+            }
+            if (windowLen > maxWindows) {
+                maxWindows = windowLen;
+            }
+        }
+        return maxWindows;
+    }
+
+    /**
+    * @Description: 3.  滑动窗口解法
+    * @Param:
+    * @return:
+    * @Author: 无始
+    * @Date: 2020/1/3+2:46 PM
+    */
+    public static int lengthOfLongestSubstring2(String s) {
+        int len = s.length();
+        int begin = 0;
+        int end = 0;
+        int ans = 0;
+        HashMap<Character, Integer> windowsArray = new HashMap<>();
+        for (; end < len; end++) {
+            if (windowsArray.containsKey(s.charAt(end))) {
+                begin = Math.max(windowsArray.get(s.charAt(end)) + 1, begin);
+            }
+            ans = Math.max(ans, end - begin + 1);
+            windowsArray.put(s.charAt(end), end);
+        }
+        return ans;
+    }
+
     public static void main(String[] args) {
-        int[] argss = new int[6];
+
+//        String s ="abcabcbb";
+        String s = "tmmzuxt";
+//        int result = lengthOfLongestSubstring(s);
+        int result2 = lengthOfLongestSubstring2(s);
+//        int[] ss = {1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1};
+//        int[] ss = {1, 1,1};
+//        int results = findMaxConsecutiveOnes(ss);
+//        int[] argss = new int[6];
 //        argss[0] = 0;
 //        argss[1] = 0;
 //        argss[2] = 0;
@@ -123,13 +213,13 @@ public class ArrayExercise {
 //        argss[4] = 2;
 
 
-        argss[0] = -1;
-        argss[1] = 0;
-        argss[2] = 1;
-        argss[3] = 2;
-        argss[4] = -1;
-        argss[5] = -4;
-        List<List<Integer>> result = threeSum(argss);
+//        argss[0] = -1;
+//        argss[1] = 0;
+//        argss[2] = 1;
+//        argss[3] = 2;
+//        argss[4] = -1;
+//        argss[5] = -4;
+//        List<List<Integer>> result = threeSum(argss);
 
 
 //        int[] argss = new int[4];
