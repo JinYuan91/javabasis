@@ -1,4 +1,4 @@
-package com.java.basis.threads;
+package com.java.basis.concurrent.threads;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -21,7 +21,6 @@ public class AtomicSafety {
 //            thread.setDaemon(true);
             thread.start();
         }
-
         for(int i=0;i<10000;i++) {
             System.out.println(logicalclock.get());
         }
