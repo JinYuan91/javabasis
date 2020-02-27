@@ -1,5 +1,6 @@
 package com.java.basis.concurrent.lock;
 
+import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class ReentrantLockExample {
