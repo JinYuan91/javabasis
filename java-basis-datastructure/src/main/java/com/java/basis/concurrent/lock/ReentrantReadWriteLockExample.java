@@ -45,9 +45,7 @@ public class ReentrantReadWriteLockExample {
                 System.out.println("B action over");
                 try {
                     Thread.sleep(3000);
-                }
-                catch (InterruptedException e)
-                {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 reentrantReadWriteLock.writeLock().unlock();
@@ -57,16 +55,13 @@ public class ReentrantReadWriteLockExample {
         threadB.start();
         try {
             Thread.sleep(18000);
-        }
-        catch (InterruptedException e)
-        {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
         return valueLock;
     }
 
-    public static void readLockExample()
-    {
+    public static void readLockExample() {
         Thread threadC = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -74,14 +69,12 @@ public class ReentrantReadWriteLockExample {
                 reentrantReadWriteLock.readLock().lock();
                 System.out.println("begin c read lock:" + System.currentTimeMillis());
                 for (int i = 0; i < 100; i++) {
-                    System.out.println("c:"+valueLock);
+                    System.out.println("c:" + valueLock);
                 }
                 System.out.println("c action over");
                 try {
                     Thread.sleep(3000);
-                }
-                catch (InterruptedException e)
-                {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 reentrantReadWriteLock.readLock().unlock();
@@ -97,14 +90,12 @@ public class ReentrantReadWriteLockExample {
                 reentrantReadWriteLock.readLock().lock();
                 System.out.println("begin d read lock:" + System.currentTimeMillis());
                 for (int i = 0; i < 100; i++) {
-                    System.out.println("d:"+valueLock);
+                    System.out.println("d:" + valueLock);
                 }
                 System.out.println("d action over");
                 try {
                     Thread.sleep(3000);
-                }
-                catch (InterruptedException e)
-                {
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 reentrantReadWriteLock.readLock().unlock();
