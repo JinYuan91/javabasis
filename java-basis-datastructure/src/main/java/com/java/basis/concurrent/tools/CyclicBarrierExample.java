@@ -5,9 +5,6 @@ import java.util.concurrent.CyclicBarrier;
 
 public class CyclicBarrierExample {
 
-
-
-
     public static void main(String[] args) {
         CyclicBarrier cyclicBarrier = new CyclicBarrier(2, new CyclicBarrierRunExample());
         Thread otherRunExampleA = new Thread(new OtherRunExample(cyclicBarrier, "A"));
@@ -17,7 +14,6 @@ public class CyclicBarrierExample {
     }
 
     static class CyclicBarrierRunExample implements Runnable {
-
         @Override
         public void run() {
             System.out.println("CyclicBarrierRun Example");
@@ -37,13 +33,13 @@ public class CyclicBarrierExample {
         public void run() {
             System.out.println(name + " begin run input barrier");
             try {
-                cyclicBarrier.await();
+                cyclicBarrier.await();//BarrierCount. -1.   =0时会继续往下执行，并且会执行new CyclicBarrier()构造函数第二个参数的 Runnable方法
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (BrokenBarrierException e) {
                 e.printStackTrace();
             }
-            System.out.println(name + "go on run");
+            System.out.println(name + "-go on run");
 
         }
     }

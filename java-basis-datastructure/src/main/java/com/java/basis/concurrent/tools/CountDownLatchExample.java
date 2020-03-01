@@ -7,10 +7,10 @@ public class CountDownLatchExample {
 
     public static void main(String[] args)
     {
-        for(int i=0;i<3;i++)
+        for(int i=0;i<2;i++)
         {
             AcquireCount acquireCount=new AcquireCount(countDownLatch);
-            acquireCount.start();
+            acquireCount.start();//countDownLath.await() //获取同步器资源
         }
 
         try {
@@ -21,11 +21,9 @@ public class CountDownLatchExample {
         for(int i=0;i<3;i++)
         {
             ReleaseCount releaseCount=new ReleaseCount(countDownLatch);
-            releaseCount.start();
+            releaseCount.start();//countDownLatch.countDown() //释放同步器状态值
         }
     }
-
-
     static class ReleaseCount extends Thread
     {
         private CountDownLatch countDownLatch;
@@ -37,10 +35,9 @@ public class CountDownLatchExample {
         public void run() {
 
             System.out.println(this.getId()+"-Release over");
-            countDownLatch.countDown();
+            countDownLatch.countDown();//释放同步器状态 -1
         }
     }
-
     static class AcquireCount extends Thread
     {
         private CountDownLatch countDownLatch;
@@ -53,14 +50,11 @@ public class CountDownLatchExample {
             System.out.println(this.getId()+"-Acquire begin");
 
                 try {
-                    countDownLatch.await();
+                    countDownLatch.await();//等待获取锁
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 System.out.println(this.getId()+"-Acquire over");
-
         }
     }
-
-
 }
