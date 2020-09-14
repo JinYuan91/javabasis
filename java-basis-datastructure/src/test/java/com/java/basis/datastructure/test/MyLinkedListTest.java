@@ -3,7 +3,7 @@ package com.java.basis.datastructure.test;
 import com.java.basis.datastructure.linkedlist.LinkedListNode;
 import com.java.basis.datastructure.linkedlist.MyLinkedList;
 import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;

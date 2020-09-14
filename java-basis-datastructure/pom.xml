@@ -19,7 +19,20 @@
 	</properties>
 
 	<dependencies>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot.experimental</groupId>-->
+<!--			<artifactId>spring-boot-starter-web-reactive</artifactId>-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.61</version>
+		</dependency>
 
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
+		</dependency>
 
 	</dependencies>
 
