@@ -23,7 +23,7 @@ public class ArrayExercise {
         int value = 0;
 
         for (Map.Entry<Integer, ArrayList<Integer>> item : hashMap.entrySet()
-                ) {
+        ) {
             if (null == item.getValue()) {
                 continue;
             }
@@ -130,12 +130,12 @@ public class ArrayExercise {
     }
 
     /**
-    * @Description: 3. 滑动窗口 暴力解法
-    * @Param:
-    * @return:
-    * @Author: 无始
-    * @Date: 2020/1/3+2:46 PM
-    */
+     * @Description: 3. 滑动窗口 暴力解法
+     * @Param:
+     * @return:
+     * @Author: 无始
+     * @Date: 2020/1/3+2:46 PM
+     */
     public static int lengthOfLongestSubstring(String s) {
         if (s == null || s.length() <= 0) {
             return 0;
@@ -170,12 +170,12 @@ public class ArrayExercise {
     }
 
     /**
-    * @Description: 3.  滑动窗口解法
-    * @Param:
-    * @return:
-    * @Author: 无始
-    * @Date: 2020/1/3+2:46 PM
-    */
+     * @Description: 3.  滑动窗口解法
+     * @Param:
+     * @return:
+     * @Author: 无始
+     * @Date: 2020/1/3+2:46 PM
+     */
     public static int lengthOfLongestSubstring2(String s) {
         int len = s.length();
         int begin = 0;
@@ -232,5 +232,56 @@ public class ArrayExercise {
 //        int[] result = twoSum(argss, 0);
         System.out.print("1");
 
+    }
+
+    /**
+    * @Description: 1018. 可被 5 整除的二进制前缀 题解
+    * @Param:  * @param null
+    * @return:
+    * @Author: 无始
+    * @Date: 2021/1/14+10:38 上午
+    */
+    public List<Boolean> prefixesDivBy5(int[] A) {
+        List<Boolean> result = new ArrayList();
+        int temp = 0;
+        for (int i = 0; i < A.length; i++) {
+            if (A[i] == 0) {
+                temp = temp * 2;
+            } else {
+                temp = temp * 2 + 1;
+            }
+            temp = temp % 5;
+            if (temp == 0) {
+                result.add(true);
+            } else {
+                result.add(false);
+            }
+        }
+        return result;
+    }
+
+    /**
+    * @Description: 1018. 可被 5 整除的二进制前缀 题解 优化
+    * @Param:  * @param null
+    * @return:
+    * @Author: 无始
+    * @Date: 2021/1/14+10:39 上午
+    */
+    public List<Boolean> prefixesDivBy5Ex(int[] A) {
+        List<Boolean> result = new ArrayList();
+        int temp = 0;
+        for (int i : A) {
+            if (i == 0) {
+                temp = temp * 2 % 5;
+            } else {
+                temp = (temp * 2 + 1) % 5;
+            }
+            if (temp == 0) {
+                result.add(true);
+            } else {
+                result.add(false);
+            }
+        }
+        return result;
     }
 }
